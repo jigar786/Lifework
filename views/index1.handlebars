@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css//material.min.css">
+  <script src="js//material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js">   </script>
+  <title></title>
+</head>
+
+<body style="background:url('images/bg.jpg') center / cover;">
+  <section class="get">
+    <div>
+      {{# each items }}
+      <article class="item">
+        <div>Name: {{ this.name }}</div>
+        <div>Email Id: {{ this.overview }}</div>
+        {{!-- <div>Phone No.: {{ this.phone }}</div>
+        <div>Gender: {{ this.sex }}</div> --}}
+      </article>
+      {{/each}}
+    </div>
+  </section>
+
+
+  <!-- Wide card with share menu button -->
+  {{!-- <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="home1">
+      Login
+    </button></center>
+  <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="home2">
+      Sign-Up
+    </button></center> --}}
+</body>
+<script>
+  $('#home1').click(function () {
+    window.location.replace('users/login');
+  })
+  $('#home2').click(function () {
+    window.location.replace('users/register');
+  })
+</script>
+
+</html>

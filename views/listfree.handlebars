@@ -1,0 +1,85 @@
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./material.min.css">
+    <script src="./material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+</head>
+<style>
+    .mdl-data-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    #panel {
+        width: 95%;
+        white-space: nowrap;
+        /*overflow: hidden;*/
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mdl-data-table th,
+    td {
+        text-align: center !important;
+        justify-content: center
+    }
+</style>
+
+<body>
+    <div id="panel">
+        <h3>FreeLancer List</h3>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Email</th>
+                    <th class="mdl-data-table__cell--non-numeric">Skills</th>
+                    <th class="mdl-data-table__cell--non-numeric">Allocation</th>
+                </tr>
+            </thead>
+
+            <tbody id="theTBody">
+                {{# each freelancers }}
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.name }}
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.username }}
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.skills }}
+                    </td>
+                    <form action="allotfree/?id={{this.username}}" method="POST">
+                        <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                Allot
+                            </button>
+                    </form>
+                    {{!-- <form action="completedclient/?id={{this._id}}" method="POST">
+                        <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                id="{{this._id}}">
+                                Completed
+                            </button>
+                    </form>
+                    </td> --}}
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

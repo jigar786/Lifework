@@ -1,0 +1,38 @@
+{
+    "name": "udit",
+    "version": "1.0.0",
+    "description": "Project for Udit Lifework, where we have made client pm and freelancer site",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "Lifework",
+        "client",
+        "project"
+    ],
+    "author": "Aditya Kapadia And Jigar Panchal",
+    "license": "ISC",
+    "dependencies": {
+        "alert-node": "^1.2.2",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.17.1",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.3",
+        "ejs": "^2.6.1",
+        "exphbs": "^1.2.0",
+        "express": "^4.15.2",
+        "express-handlebars": "^3.0.0",
+        "express-messages": "^1.0.1",
+        "express-session": "^1.15.2",
+        "express-validator": "^5.3.0",
+        "joi": "^13.0.1",
+        "mongodb": "^2.2.36",
+        "mongoose": "^4.11.12",
+        "morgan": "^1.8.1",
+        "nodemailer": "^4.6.8",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "popups": "^1.1.3"
+    }
+}

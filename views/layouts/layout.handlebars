@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/css/mdb.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+
+    <!-- Template styles -->
+    <style rel="stylesheet">
+        /* TEMPLATE STYLES */
+
+        main {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .extra-margins {
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .jumbotron {
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #274e68;
+        }
+        .demo-layout-transparent {
+  background: url('../assets/demos/transparent.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+        </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/material.min.css">
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="js/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js">   </script>
+  <title></title>
+</head>
+
+<body>
+
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class=" demo-layout-transparent mdl-layout mdl-js-layout ">
+    <header class="mdl-layout__header  mdl-layout__header--transparent mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        {{!-- <span class="mdl-layout-title">LifeWork</span> --}}
+
+        {{!-- <img src="mainlogo.png" alt="chutiy"> --}}
+               
+        
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer">
+          <a href="/users/home"><img src="/mainlogo.png" alt="LifeWork" height="50px;" style=" display: block;
+    margin-left: auto;
+    margin-right: 360px;;"></a>
+        </div> 
+        {{!--Navigation. We hide it in small screens. --}}
+        <nav class="mdl-navigation">
+    
+          <!-- Accent-colored raised button with ripple -->
+          {{#if user}}
+          <button style="width:99px; visibility:hidden;"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+            style="margin:auto" onclick="home()">
+            Home
+          </button>
+          &nbsp;&nbsp;
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+            onclick="logout()">
+            Logout
+          </button>
+          &nbsp;&nbsp;
+          {{else}}
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+            style="margin:auto" onclick="homepage()">
+            Home
+          </button>
+          &nbsp;&nbsp;
+          <!-- Accent-colored raised button with ripple -->
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+            onclick="register()">
+            Register
+          </button>
+          &nbsp;&nbsp;
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+            onclick="login()">
+            Login
+          </button>
+          &nbsp;&nbsp;
+          {{/if}}
+        </nav>
+      </div>
+    </header>
+    <center><h4 style="margin-top:10px;">Redefining work by putting life first</h4></center>
+    <!-- <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div> -->
+    {{!-- <div class="  mdl-js-layout mdl-layout__drawer mdl-layout--small-screen-only">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+
+      </header>
+      <div class="mdl-layout-title">LifeWork</div>
+      <nav class="mdl-navigation">
+        {{#if user}}
+        <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="/users/logout">Logout</a>
+        {{else}}
+        <a class="mdl-navigation__link" href="/users/home">Home</a>
+        <a class="mdl-navigation__link" href="/users/register">Register</a>
+        <a class="mdl-navigation__link" href="/users/login">Login</a>
+        {{/if}}
+      </nav>
+    </div> --}}
+     
+
+    <div style="margin-top:20px;background:rgb(53, 173, 53);width:60%;margin-left:auto;margin-right:auto;opacity:0.5" >
+      {{#if success_msg}}
+      <center>
+        {{success_msg}}
+      </center>
+      {{/if}}
+    </div>
+    <div style="margin-top:20px;background:rgb(233, 44, 44);width:60%;margin-left:auto;margin-right:auto;opacity:0.5">
+      {{#if error_msg}}
+      <center>
+        {{error_msg}}
+      </center>
+      {{/if}}
+    </div>
+    <div style="margin-top:20px;background:rgb(231, 66, 75);width:60%;margin-left:auto;margin-right:auto;opacity:0.5;">
+      {{#if error}}
+      <center>
+        {{error}}
+      </center>
+      {{/if}}
+    </div>
+    <script>
+      function home() {
+        window.location.replace('/');
+      };
+      function register() {
+        window.location.replace('/users/register');
+      };
+      function login() {
+        window.location.replace('/users/login');
+      };
+      function logout() {
+        window.location.replace('/users/logout');
+      };
+      function homepage() {
+        window.location.replace('/users/home');
+      };
+    </script>
+
+    {{{body}}}

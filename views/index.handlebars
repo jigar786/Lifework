@@ -1,0 +1,411 @@
+<html>
+
+<body>
+
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./material.min.css">
+        <script src="./material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+        <style>
+            .mdl-data-table {
+    table-layout:fixed;
+    width:100%; 
+}
+        #panel,#panel1,#panel2,#panel3,#panel4,#panel5{
+             width: 95%;
+  white-space: nowrap;
+  /*overflow: hidden;*/
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  margin-left:auto;
+  margin-right: auto;
+        }
+
+    .mdl-data-table th, td{
+  text-align: center !important;
+}
+.showmore{
+    white-space: nowrap;
+    overflow-x: hidden;
+    width: 50%;
+}
+
+
+        </style>
+    </head>
+    {{#if cli}}
+    <div id="panel">
+        <center><center><h3>Current Projects</h3></center></center>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                    <th class="mdl-data-table__cell--non-numeric">Description</th>
+                    <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                    <th class="mdl-data-table__cell--non-numeric">Completed</th>
+
+                </tr>
+            </thead>
+
+            <tbody id="theTBody">
+                {{# each users }}
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.name_proj }}
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.overview }}<br>
+                       <a href ="/projectdetailsc/?id={{this._id}}">See more</a>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        {{ this.deadline }}
+                    </td>
+                    {{#if client_completed}}
+                    <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                            disabled>
+                            Completed
+                        </button>
+                        {{else}}
+                        <form action="completedclient/?id={{this._id}}" method="POST">
+                    <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                            id="{{this._id}}">
+                            Completed
+                        </button>
+                        </form>
+                    </td>
+                    </tr>
+                    {{/if}}
+                    {{!-- <form action="completedclient/?id={{this._id}}" method="POST">
+                        <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                id="{{this._id}}">
+                                Completed
+                            </button>
+                    </form>
+                    </td> --}}
+                
+                {{/each}}
+
+            </tbody>
+        </table>
+        </div>
+        <div id="panel1">
+            <center><h3>Pending Projects</h3></center>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                        <th class="mdl-data-table__cell--non-numeric">Description</th>
+                        <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                    </tr>
+                </thead>
+
+                <tbody id="theTBody">
+                    {{# each pendingusers }}
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            {{ this.name_proj }}
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            {{ this.overview }}
+                            <br>
+                            <a href ="/projectdetails/?id={{this._id}}">See more</a>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            {{ this.deadline }}
+                        </td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+            
+            <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-cell--hide-phone"
+                onclick="prod()" style="margin-top:20px;margin-bottom:20px;">
+                Add Project
+            </button>
+            </center>
+            </div>
+            {{else}}
+            {{#if pm}}
+            <div id="panel2">
+                <center><h3>Current Projects</h3></center>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                            <th class="mdl-data-table__cell--non-numeric">Description</th>
+                            <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                            <th class="mdl-data-table__cell--non-numeric">FreeLancer Alloted</th>
+                            <th class="mdl-data-table__cell--non-numeric">Queries by FreeLancer</th>
+                            <th class="mdl-data-table__cell--non-numeric">Completed</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="theTBody">
+                        {{# each users }}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.name_proj }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.overview }}
+                            <br>
+                            <a href ="/projectdetailsc/?id={{this._id}}">See more</a>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.deadline }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.freel_allotedemail }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.contact_pm }}
+                            </td>
+                            {{#if pm_completed}}
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    disabled>
+                                    Completed
+                                </button>
+                                {{else}}
+                                <form action="completedpm/?id={{this._id}}" method="POST">
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    id="{{this._id}}">
+                                    Completed
+                                </button>
+                                </form>
+                            </td>
+                            </tr>
+                            {{/if}}
+                        
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="panel3">
+                <center><h3>Pending Projects</h3></center>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                            <th class="mdl-data-table__cell--non-numeric">Description</th>
+                            <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                            <th class="mdl-data-table__cell--non-numeric">Freelancer Allocation</th>
+                            <th class="mdl-data-table__cell--non-numeric">Completed</th>
+                            
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="theTBody">
+                        {{# each pendingusers }}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.name_proj }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.overview }}
+                                <br>
+                            <a href ="/projectdetails/?id={{this._id}}">See more</a>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.deadline }}
+                            </td>
+                            {{#if freel_allotedemail}}
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    id="{{this._id}}" disabled>
+                                    Allot FreeLancer
+                                </button>
+                                {{else}}
+                                <form action="listfree/?id={{this._id}}" method="POST">
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    id="{{this._id}}">
+                                    Allot FreeLancer
+                                </button>
+                                </form>
+                                {{/if}}
+                                <form action="/edittext/?id={{this._id}}" method="post">
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    Edit Project Details
+                                </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{else}}
+            {{#if freelancer}}
+            <div id="panel4">
+                <center><h3>Current Projects</h3></center>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                            <th class="mdl-data-table__cell--non-numeric">Description</th>
+                            <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                            <th class="mdl-data-table__cell--non-numeric">Contact</th>
+                            <th class="mdl-data-table__cell--non-numeric">Completed</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="theTBody">
+                        {{# each users }}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.name_proj }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.overview }}
+                                <br>
+                            <a href ="/projectdetailsc/?id={{this._id}}">See more</a>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.deadline }}
+                            </td>
+                            <form action="/contact/?id={{this._id}}" method="POST">
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    Contact
+                                </button>
+                                </form>
+                            </td>
+                            {{#if freel_completed}}
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    disabled>
+                                    Completed
+                                </button>
+                                {{else}}
+                                <form action="completedfreel/?id={{this._id}}" method="POST">
+                            <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                    id="{{this._id}}">
+                                    Completed
+                                </button>
+                                </form>
+                            </td></tr>
+                            {{/if}}
+                        
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="panel5">
+                <center><h3>Pending Projects</h3></center>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">ProjectName</th>
+                            <th class="mdl-data-table__cell--non-numeric">Description</th>
+                            <th class="mdl-data-table__cell--non-numeric">DeadLine</th>
+                            <th class="mdl-data-table__cell--non-numeric">Accept</th>
+                            <th class="mdl-data-table__cell--non-numeric">Reject</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="theTBody">
+                        {{# each pendingusers }}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.name_proj }}
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.overview }}
+                                <br>
+                            <a href ="/projectdetails/?id={{this._id}}">See more</a>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                {{ this.deadline }}
+                            </td>
+                            <form action="acceptfreel/?id={{this._id}}" method="POST">
+                                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                        Accept
+                                    </button>
+                            </form>
+                            <form action="rejectfreel/?id={{this._id}}" method="POST">
+                                <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                        Reject
+                                    </button>
+                            </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{/if}}
+            {{/if}}
+            {{/if}}
+            <!-- <button id="click">click me</button> -->
+
+
+            <!-- <script>
+
+
+
+        function makebody() {
+    var tbody = document.getElementById("theTBody");
+    // empty body
+    while(tbody.firstChild) {
+            tbody.removeChild(tbody.firstChild);
+    }
+
+    var ProjectNames = ["a", "b", "c","d"];
+    var descriptions = ["apple", 'banana', 'carrot','kela'];
+    for (var i = 0; i < ProjectNames.length; i++) {
+        var tr = document.createElement("tr");
+        var tdProjectName = document.createElement("td");
+        var tdDesc = document.createElement("td");
+
+        tdProjectName.appendChild(document.createTextNode(ProjectNames[i]));
+        tdDesc.appendChild(document.createTextNode(descriptions[i]));
+
+        tdProjectName.classList.add("mdl-data-table__cell--non-numeric");
+        tdDesc.classList.add("mdl-data-table__cell--non-numeric");
+        tr.appendChild(tdProjectName);
+        tr.appendChild(tdDesc);
+
+        tbody.appendChild(tr);
+    }
+}
+
+// document.getElementById("clickme").addEventListener("click", function() {
+//     makebody();
+// });
+
+$('#click').click(function () {
+  makebody();
+})
+    </script>
+    -->
+
+</body>
+<script>
+    function prod() {
+        window.location.replace('productadd');
+    };
+    //function completed(id) {
+      //  console.log(id);
+
+        //var f = document.createElement("form")
+        //f.setAttribute('method', 'post');
+        //f.setAttribute('action','/completedclient');
+        //document.getElementsByTagName('body')[0].appendChild(f);     //   
+        //x.action = '/completedclient/?id=' + id;
+        //x.form.submit();
+
+    //}
+
+</script>
+
+</html>

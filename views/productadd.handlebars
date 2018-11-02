@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/material.min.css">
+  <script src="/js/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js">   </script>
+  <title></title>
+</head>
+
+<body>
+  <div style="margin-top:95px;height:300px !important" class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Add Project</h2>
+    </div>
+
+    <div class="mdl-card__actions mdl-card--border">
+      <form action="/productadd" method="post">
+        <i class="material-icons mdl-textfield__label__icon">face</i>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+         <input class="mdl-textfield__input" type="text" name="name_proj" id="name_proj" style="width:450px;">
+          <label class="mdl-textfield__label" for="Name" id="namelab">Name</label>
+          <!-- <div class="mdl-layout-spacer"></div> -->
+
+        </div><br>
+
+
+    
+
+        <i class="material-icons mdl-textfield__label__icon">event</i>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+          <input class="mdl-textfield__input" type="text" name="overview" id="client-overview" style="width:450px;">
+          <label class="mdl-textfield__label" for="Name" id="passwordlab">Overview</label>
+          <!-- <span class="mdl-textfield__error">Input is not a number!</span> -->
+          <!-- <div class="mdl-layout-spacer"></div> -->
+
+        </div><br>
+{{!-- 
+        <table>
+          <tr>
+            <td>
+              <label class="mdl-radio mdl-js-radio" for="option1" style="margin-top:30px;">
+                <input type="radio" id="option1" name="gender" class="mdl-radio__button" value="male" checked>
+                <span class="mdl-radio__label">Male</span>
+              </label>
+            </td>
+
+            <td>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option2" style="margin-top:30px;">
+                <input type="radio" id="option2" name="gender" class="mdl-radio__button" value="female">
+                <span class="mdl-radio__label">Female</span>
+              </label>
+            </td>
+          </tr>
+        </table>
+
+
+        <table>
+          <tr>
+            <td>
+              <label class="mdl-radio mdl-js-radio" for="option5" style="margin-top:30px;">
+                <input type="radio" id="option5" name="types" class="mdl-radio__button" value="client" checked>
+                <span class="mdl-radio__label">Client</span>
+              </label>
+            </td>
+
+            <td>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option6" style="margin-top:30px;">
+                <input type="radio" id="option6" name="types" class="mdl-radio__button" value="freelancer">
+                <span class="mdl-radio__label">FreeLancer</span>
+              </label>
+            </td>
+            <td>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option7" style="margin-top:30px;">
+                <input type="radio" id="option7" name="types" class="mdl-radio__button" value="projectmanager">
+                <span class="mdl-radio__label">Project Manager</span>
+              </label>
+            </td>
+          </tr>
+        </table> --}}
+       <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-top:10px;">
+            ADD
+          </button></center>
+    </div>
+    </form>
+    <!-- <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button-icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div> -->
+  </div>
+
+</body>
+<script>
+
+
+$(window).load(function () {
+    $('input[data-required=true]').attr('required', true);
+});
+</script>
+
+</html>

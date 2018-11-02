@@ -1,0 +1,153 @@
+#free {
+    text-align: center;
+}
+
+#free {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* overflow-y: hidden; */
+   
+}
+
+/* #panel{
+    margin-left: auto;
+    margin-right:auto;
+} */
+
+/* #loginform{
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/*For registartion.html */
+
+.demo-card-wide.mdl-card {
+    width: 712px;
+    height: 512px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
+
+.demo-card-wide>.mdl-card__title {
+    height: 50px;
+    color: rgb(255, 255, 255);
+    /* margin-right:auto;
+  margin-left:auto; */
+    /* background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover; */
+    background: rgb(89, 0, 153);
+}
+
+.demo-card-wide>.mdl-card__menu {
+    color: #fff;
+}
+
+body {
+    /* padding: 20px; */
+    /* height: 100%; */
+    background: #fafafa;
+    position: relative;
+    /* overflow-y: hidden; */
+}
+
+#Name,
+#namelab,
+#Email,
+#emaillab,
+#abcccdd,
+#abc,
+#Password,
+#passwordlab {
+    width: 450px;
+    /* padding-right:auto;
+  padding-left:auto; */
+}
+
+/* main{
+    overflow-y: hidden;
+} */
+
+
+/* .mdl-textfield__label__icon{
+  padding-bottom: 3px;
+} */
+
+
+/* .mdl-cell{
+  margin-right: 10px;
+} */
+
+
+/* .mdl-grid{
+  margin-top: 50%;
+  margin-bottom: auto;
+} */
+
+
+/* .material-icons{
+  text-align: left;
+} */
+
+
+/* .mdl-textfield__label__icon {
+   /* position: absolute; */
+
+
+/* margin-right:5px; */
+
+
+/* padding-right: 5px; */
+
+
+/* } */
+
+
+/* .mdl-textfield__label{
+  position: absolute;
+  padding-left: 30px;
+} */
+
+
+/* .mdl-textfield__input{
+  padding-right: 30px;
+} */
+
+#home1 {
+    margin-top: 500px;
+    ;
+    /* margin-bottom:auto; */
+}
+
+#home2 {
+    margin-top: 50px;
+}
+
+.mdl-textfield__icon {
+    width: 32px;
+    text-align: center;
+    position: relative;
+    line-height: 1.5;
+}
+
+.mdl-textfield__icon~* {
+    margin-left: 48px;
+    width: calc(100% - 48px);
+}
+
+.mdl-grid {
+    /* padding-top: 30px; */
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* .mdl-layout__content{
+    /* height: 100%; */
+    /* overflow-y: hidden; */
+/* } */
+/* 
+#fre{
+    overflow-y:hidden;
+} */ 
